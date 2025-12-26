@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Mowen | Computer Engineer</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(255, 255, 255);
+        margin: 0;
+        font-family: "Aeonik", Arial;
+    }
+
+    /* HOME BAR */
+    .home-bar {
+        top: 0;
+        z-index: 100;
+        background-color: #051b38;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        height: 150px;
+        align-items: center;
+    }
+
+    .p {
+        margin: 5px;
+        color: white;
+        font-size: 35px;
+        font-weight: 600;
+        letter-spacing: 0.10em;
+    }
+
+    .menu {
+        height: 100%;
+        width: 100px;
+        background-color: transparent;
+        color: white;
+        border: 0;
+        text-decoration: none;
+        font-size: 20px;
+        letter-spacing: 0.10em;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .sectionOne {
+        display: flex;
+        align-items: center;
+    }
+
+    .fBackground {
+        width: 55%;
+        background: rgb(160, 160, 160);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .face {
+        width: 50%;
+        max-width: 400px;
+        background-color: #d6d6d6;
+        border-radius: 6px;
+        padding: 35px 25px 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px;
+    }
+
+    .face img {
+        width: 70%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .face p {
+        font-size: 22px;
+        letter-spacing: 0.25em;
+        font-weight: 600;
+        color: #444;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 16px;
+        margin-top: 15px;
+    }
+
+    .button-container button {
+        padding: 14px 36px;
+        cursor: pointer;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        transition: 0.2s ease;
+    }
+
+    .button-container button:first-child {
+        background-color: #3a3a3a;
+        color: white;
+        border: none;
+    }
+
+    .button-container button:last-child {
+        background-color: #3a3a3a;
+        color: white;
+        border: none;
+    }
+
+    .content {
+        width: 35%;
+        padding: 80px 80px 40px 80px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p2 {
+        font-family: "Aeonik", Arial;
+        font-weight: 600;
+        color: #637076c1;
+        letter-spacing: 0.01em;
+        padding: 20px;
+        line-height: 10px;
+    }
+
+    .p3 {
+        font-family: "Aeonik", Arial;
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #3a4246;
+        letter-spacing: 0.01em;
+        padding: 20px;
+    }
+
+    .content p2 {
+        max-width: 800px;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #555;
+    }
+
+    .section2 {
+        background-color: #051b38;
+        display: flex;
+        flex-direction: row;
+        height: 25vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .yellow-container {
+        background-color: #051b38;
+        display: flex;
+        flex-direction: row;
+        height: 25vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 30px;
+    }
+
+    .p4 {
+        font-family: "Aeonik", Arial;
+        font-weight: 700;
+        font-size: 6rem;
+        color: white;
+        letter-spacing: 0.05em;
+        padding: 10px;
+        margin-left: 10px;
+    }
+
+    /* FOOTER */
+    .footer {
+        background-color: #051b38;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        height: 90px;
+        margin-top: 25px;
+    }
+
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px; 
+        width: 300px;
+        height: 100vh;
+        background: #222;
+        color: white;
+        padding: 20px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 10px rgba(0,0,0,0.4);
+        z-index: 999;
+    }
+
+    #sidebar.open {
+        right: 0;
+    }
+
+    .menu {
+        cursor: pointer;
+    }
+
+    .p7 {
+        font-family: "Aeonik", Arial;
+        font-weight: 700;
+        font-size: 4rem;
+        color: rgb(92, 92, 92);
+        letter-spacing: 0.05em;
+        padding: 10px;
+        margin: 2rem 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+
+    .pImage {
+        width: 80%;
+        height: auto;
+        display: block;       
+        margin: 0 auto;        
+    }
+
+
+    .title {
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;          
+        justify-content: space-between;
+        align-items: center;     
+    }
+
+    .view {
+        color: white;
+        background-color: #3a3a3a;
+        height: 50px;
+        align-items: center;
+        border: none;
+
+        padding: 14px 36px;
+        cursor: pointer;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        transition: 0.2s ease;
+    }
+
+    .view:hover {
+        color: #3a3a3a;
+        background-color: white;
+        height: 50px;
+        align-items: center;
+        border: none;
+
+        padding: 14px 36px;
+        cursor: pointer;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        transition: 0.2s ease;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .sectionOne {
+            flex-direction: column;
+        }
+
+        .fBackground,
+        .content {
+            width: 100%;
+        }
+
+        .content {
+            padding: 40px;
+        }
+    }
+</style>
+
+<body>
+
+<!-- HOME BAR -->
+<div class="home-bar" id="top">
+    <div class="title">
+        <p class="p">Tyler Mowen / Computer Engineer</p>
+    </div>
+    <div class="options">
+        <a href="portfolio.html" class="menu">HOME</a>
+        <a href="#section2" class="menu">PROJECTS</a>
+        <a href="resume.html" class="menu">RESUME</a>
+        <a href="#" class="menu" onclick="toggleSidebar()">CONTACT</a>
+
+        <div id="sidebar">
+            <div style="align-items: right;">
+                <a href="#" class="menu" onclick="toggleSidebar()">X</a>
+            </div>
+            <h2>Contact Me</h2>
+            <p>Email:</p>
+            <p>Phone:</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION ONE -->
+<div class="sectionOne">
+    <div class="fBackground">
+        <div class="face">
+            <img src="face.jpg">
+
+            <p>TYLER MOWEN</p>
+            <p>COMPUTER ENGINEER</p>
+
+            <div class="button-container">
+                <button onclick="window.open('https://www.linkedin.com/in/tyler-mowen-/', '_blank')">LinkedIn</button>
+                <button onclick="window.open('https://github.com/tylrmwn012', '_blank')">GitHub</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <p2 class="p2">A little about me...</p2>
+        <p3 class="p3">Computer Engineering | Problem Solving | Community Impact</p3>
+        <p2 class="p2">I’m a Computer Engineering student with a passion for using technology to solve meaningful problems and support communities. With two years of experience in programming and a background in both customer service and team leadership, I bring a blend of technical skill and people-first thinking to everything I do.</p2>
+        <p2 class="p2">Through my work with AmeriCorps, CSC, and customer-facing roles, I’ve learned the value of communication, empathy, and adaptability—skills I carry into every team and project.</p2>
+    </div>
+</div>
+
+<!-- PROJECTS HEADER -->
+<div class="section2" id="section2">
+    <div class="yellow-container">
+        <p3 class="p4">Projects</p3>
+    </div>
+</div>
+
+<div class="title">
+    <p7 class="p7">Arduino Oscilloscope</p7>
+    <button class="view">View Project</button>
+</div>
+<div class="pImage">
+    <img class="pImage" src="temp.png">
+</div>
+<div class="title">
+    <p7 class="p7">F-35B Swivel Nozzle</p7>
+    <button class="view">View Project</button>
+</div>
+<div class="pImage">
+    <img class="pImage" src="temp.png">
+</div>
+<div class="title">
+    <p7 class="p7">Ultrasonic Radar</p7>
+    <button class="view">View Project</button>
+</div>
+<div class="pImage">
+    <img class="pImage" src="temp.png">
+</div>
+
+
+<!-- TIMELINE -->
+<div class="white"></div>
+
+<!-- FOOTER -->
+<div class="footer" style="padding: 20px; align-items: center; justify-content: space-between; display: flex; flex-direction: row;">
+    <p style="color: white; font-size: 12px;">@2025 Tyler Mowen</p>
+    <a href="#top" style="color: white; text-decoration: none;">Back to Top</a>
+</div>
+
+</body>
+<script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+</script>    
+</html>
