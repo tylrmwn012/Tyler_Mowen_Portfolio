@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Mowen | Computer Engineer</title>
+</head>
+
+<style>
+    body {
+        background-color: #051b38;
+        margin: 0;
+        font-family: "Aeonik", Arial;
+    }
+
+    /* HOME BAR */
+    .home-bar {
+        top: 0;
+        z-index: 100;
+        background-color: #051b38;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        padding-bottom: 0px;
+        height: 150px;
+        align-items: center;
+    }
+
+    .title {
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;          
+        justify-content: space-between;
+        align-items: center;     
+    }
+
+    .p {
+        margin: 5px;
+        color: white;
+        font-size: 35px;
+        font-weight: 600;
+        letter-spacing: 0.10em;
+    }
+
+    .menu {
+        height: 100%;
+        width: 100px;
+        background-color: transparent;
+        color: white;
+        border: 0;
+        text-decoration: none;
+        font-size: 20px;
+        letter-spacing: 0.10em;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .menu {
+        cursor: pointer;
+    }
+
+    /* SECTION ONE */
+    .sectionOne {
+        display: flex;
+        align-items: center;
+        height: auto;
+        padding-top: 0px;
+        padding-bottom: 50px;
+    }
+
+    .fBackground {
+        width: 55%;
+        height: 100%;
+        background: #051b38;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 0px;
+    }
+
+    .face {
+        width: 80%;
+        max-width: 800px;
+        background-color: #d6d6d6;
+        border-radius: 6px;
+        padding: 35px 25px 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: -10px;
+    }
+
+    .face img {
+        width: 80%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 16px;
+        margin-top: 15px;
+    }
+
+    .button-container button {
+        padding: 14px 36px;
+        cursor: pointer;
+        font-size: 16px;
+        letter-spacing: 0.05em;
+        border-radius: 2px;
+        transition: 0.2s ease;
+    }
+
+    .button-container button:last-child {
+        background-color: #3a3a3a;
+        color: white;
+        border: none;
+    }
+
+    .content {
+        width: 35%;
+        height: auto;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p2 {
+        font-family: "Aeonik", Arial;
+        font-weight: 600;
+        color: #637076c1;
+        letter-spacing: 0.01em;
+        margin-left: 30px;
+        line-height: 10px;
+    }
+
+    .p3 {
+        font-family: "Aeonik", Arial;
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: white;
+        letter-spacing: 0.01em;
+        margin-left: 20px;
+
+        border-bottom: 1px solid white; 
+        padding-bottom: 5px;
+        padding-top: 15px;
+    }
+
+    .content p2 {
+        max-width: 800px;
+        font-size: 16px;
+        line-height: 1.7;
+        color: white;
+    }
+
+    /* SECTION 2 */
+
+    .section2 {
+        background-color: white;
+        margin: 0;
+        height: auto;              /* full screen height */
+        display: flex;
+        justify-content: center;    /* horizontal center */
+        align-items: center;        /* vertical center */
+        text-align: center;         /* center the text itself */
+    }
+
+    .pImage {
+        width: 100%;
+        padding-bottom: 60px;
+    }
+
+    .yellow-container {
+        width: 75%;
+        max-width: 900px;
+        text-align: left;
+        padding-top: 60px;
+    }
+
+    .yellow-container p {
+        letter-spacing: 0.10em;
+        padding-bottom: 50px;
+        font-size: 20px;
+        font-family: "Aeonik", Arial;
+        font-weight: 600;
+        color: #637076c1;
+
+    }
+
+
+    /* FOOTER */
+    .footer {
+        background-color: #051b38;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        height: 90px;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px; 
+        width: 300px;
+        height: 100vh;
+        background: #222;
+        color: white;
+        padding: 20px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 10px rgba(0,0,0,0.4);
+        z-index: 999;
+    }
+
+    #sidebar.open {
+        right: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .sectionOne {
+            flex-direction: column;
+        }
+
+        .fBackground,
+        .content {
+            width: 100%;
+        }
+
+        .content {
+            padding: 40px;
+        }
+    }
+
+</style>
+
+<body class="body">
+
+<!-- HOME BAR KEEP -->
+<div class="home-bar" id="top">
+    <div class="title">
+        <p class="p">Tyler Mowen / Computer Engineer</p>
+    </div>
+    <div class="options">
+        <a href="/Users/tylermowen/Portfolio/index.html" class="menu">HOME</a>
+        <a href="/Users/tylermowen/Portfolio/index.html#section2" class="menu">PROJECTS</a>
+        <a href="/Users/tylermowen/Portfolio/Resume/resume.html" class="menu">RESUME</a>
+        <a href="#" class="menu" onclick="toggleSidebar()">CONTACT</a>
+
+        <div id="sidebar">
+            <div style="align-items: right;">
+                <a href="#" class="menu" onclick="toggleSidebar()">X</a>
+            </div>
+            <h2>Contact Me</h2>
+            <p>Email:</p>
+            <p>Phone:</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION ONE -->
+<div class="sectionOne">
+    <div class="fBackground">
+        <div class="face">
+            <img src="/Users/tylermowen/Portfolio/temp.png">
+            <div class="button-container">
+                <button onclick="window.open('https://github.com/tylrmwn012', '_blank')">Github Repository</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <p3 class="p3" style="margin-bottom: 20px; text-align: center;">Arduino Oscilloscope</p3>
+        <p3 class="p3">PROJECT TIMEFRAME</p3>
+        <p2 class="p2">TIMEFRAME GOES HERE</p2>
+        <p3 class="p3">OVERVIEW</p3>
+        <p2 class="p2">OVERVIEW GOES HERE</p2>
+        <p3 class="p3">TOOLS AND TECHNIQUES</p3>
+        <p2 class="p2">GO HERE</p2>
+        <p2 class="p2">GO HERE</p2>
+        <p2 class="p2">GO HERE</p2>
+        <p3 class="p3">SKILLS LEARNED</p3>
+        <p2 class="p2">SKILLS GO HERE</p2>
+        <p2 class="p2">SKILLS GO HERE</p2>
+        <p2 class="p2">SKILLS GO HERE</p2>
+    </div>
+</div>
+
+<!-- PROJECTS HEADER -->
+<div class="section2" id="section2">
+    <div class="yellow-container">
+        <p>The modern world moves quickly, and people often feel pressure to match its pace, but growth, progress, and fulfillment don’t always come from rushing forward; sometimes they come from slowing down long enough to understand what truly matters. Technology, communication, and global connectivity have created incredible opportunities, giving us access to information and tools that would have been unimaginable in previous generations, yet they’ve also introduced challenges that can make us feel overwhelmed, distracted, or unsure of where we fit. In this constant motion, it becomes important to define our own direction rather than just reacting to everything around us. Personal success isn’t measured solely by achievements or productivity, but by the quality of our relationships, our sense of purpose, and the impact we leave on others. Learning to balance ambition with self-respect, </p>
+        <img class="pImage" src="/Users/tylermowen/Portfolio/temp.png">
+        <p>The modern world moves quickly, and people often feel pressure to match its pace, but growth, progress, and fulfillment don’t always come from rushing forward; sometimes they come from slowing down long enough to understand what truly matters. Technology, communication, and global connectivity have created incredible opportunities, giving us access to information and tools that would have been unimaginable in previous generations, yet they’ve also introduced challenges that can make us feel overwhelmed, distracted, or unsure of where we fit. In this constant motion, it becomes important to define our own direction rather than just reacting to everything around us. Personal success isn’t measured solely by achievements or productivity, but by the quality of our relationships, our sense of purpose, and the impact we leave on others. Learning to balance ambition with self-respect, </p>
+        <img class="pImage" src="/Users/tylermowen/Portfolio/temp.png">
+        <p>The modern world moves quickly, and people often feel pressure to match its pace, but growth, progress, and fulfillment don’t always come from rushing forward; sometimes they come from slowing down long enough to understand what truly matters. Technology, communication, and global connectivity have created incredible opportunities, giving us access to information and tools that would have been unimaginable in previous generations, yet they’ve also introduced challenges that can make us feel overwhelmed, distracted, or unsure of where we fit. In this constant motion, it becomes important to define our own direction rather than just reacting to everything around us. Personal success isn’t measured solely by achievements or productivity, but by the quality of our relationships, our sense of purpose, and the impact we leave on others. Learning to balance ambition with self-respect, </p>
+        <img class="pImage" src="/Users/tylermowen/Portfolio/temp.png">
+        <p>The modern world moves quickly, and people often feel pressure to match its pace, but growth, progress, and fulfillment don’t always come from rushing forward; sometimes they come from slowing down long enough to understand what truly matters. Technology, communication, and global connectivity have created incredible opportunities, giving us access to information and tools that would have been unimaginable in previous generations, yet they’ve also introduced challenges that can make us feel overwhelmed, distracted, or unsure of where we fit. In this constant motion, it becomes important to define our own direction rather than just reacting to everything around us. Personal success isn’t measured solely by achievements or productivity, but by the quality of our relationships, our sense of purpose, and the impact we leave on others. Learning to balance ambition with self-respect, </p>
+    </div>
+</div>
+
+<!-- FOOTER KEEP -->
+<div class="footer" style="padding: 20px; align-items: center; justify-content: space-between; display: flex; flex-direction: row;">
+    <p style="color: white; font-size: 12px;">@2025 Tyler Mowen</p>
+    <a href="#top" style="color: white; text-decoration: none;">Back to Top</a>
+</div>
+
+</body>
+
+<script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+</script>    
+
+</html>
