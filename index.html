@@ -8,16 +8,16 @@
 
 <style>
     body {
-        background-color: rgb(255, 255, 255);
-        margin: 0;
+        background-color: #051b38;
         font-family: "Aeonik", Arial;
+        margin: 0px;
+        padding: 0px;
+        
     }
 
-    /* HOME BAR */
-    .home-bar {
+    .header {
         top: 0;
         z-index: 100;
-        background-color: #051b38;
         display: flex;
         justify-content: space-between;
         padding: 20px;
@@ -25,7 +25,16 @@
         align-items: center;
     }
 
-    .p {
+    .title {
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;          
+        justify-content: space-between;
+        align-items: center;  
+    }
+
+    .title-text {
         margin: 5px;
         color: white;
         font-size: 35px;
@@ -33,7 +42,7 @@
         letter-spacing: 0.10em;
     }
 
-    .menu {
+    .options {
         height: 100%;
         width: 100px;
         background-color: transparent;
@@ -46,21 +55,62 @@
         cursor: pointer;
     }
 
-    .sectionOne {
-        display: flex;
-        align-items: center;
+    .exit {
+        height: 100%;
+        width: 100px;
+        background-color: transparent;
+        color: white;
+        border: 0;
+        text-decoration: none;
+        font-size: 20px;
+        letter-spacing: 0.10em;
+        margin: 10px;
+        cursor: pointer;
     }
 
-    .fBackground {
-        width: 55%;
-        background: rgb(160, 160, 160);
+    .contact-text {
+        margin: 5px;
+        color: white;
+        font-size: 35px;
+        font-weight: 600;
+        letter-spacing: 0.10em;
+    }
+
+    #sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px; 
+        width: 300px;
+        height: 100vh;
+        background: #222;
+        color: white;
+        padding: 20px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 10px rgba(0,0,0,0.4);
+        z-index: 999;
+    }
+
+    #sidebar.open {
+        right: 0;
+    }
+
+    .sectionOne {
+        height: auto;
+        width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+    }
+
+    .face-section {
+        width: 50%;
+        background-color: #444;
+        display: flex;
+        flex-direction: column;
         align-items: center;
     }
 
     .face {
-        width: 50%;
+        width: auto;
         max-width: 600px;
         background-color: #d6d6d6;
         border-radius: 6px;
@@ -79,13 +129,18 @@
         margin-bottom: 20px;
     }
 
-    .face p {
+    .face-title {
         font-size: 22px;
         letter-spacing: 0.25em;
         font-weight: 600;
         color: #444;
         text-align: center;
         margin: 10px 0;
+
+        margin: 5px;
+        font-size: 35px;
+        font-weight: 600;
+        letter-spacing: 0.10em;
     }
 
     .button-container {
@@ -115,40 +170,43 @@
         border: none;
     }
 
-    .content {
-        width: 35%;
-        padding: 80px 80px 40px 80px;
+    .introduction {
+        width: 50%;
+        padding: 80px 80px 80px 80px;
         display: flex;
         flex-direction: column;
+        background-color: white;
     }
 
-    .p2 {
+    .intro-text {
         font-family: "Aeonik", Arial;
         font-weight: 600;
-        color: #637076c1;
-        letter-spacing: 0.01em;
+        color: #4a4a4a;
+        letter-spacing: 0.1em;
         padding: 20px;
-        line-height: 10px;
+        font-size: 20px;
     }
 
-    .p3 {
+    .intro-title {
+        padding: 20px;
         font-family: "Aeonik", Arial;
         font-weight: 700;
         font-size: 2.25rem;
         color: #3a4246;
         letter-spacing: 0.01em;
-        padding: 20px;
     }
 
-    .content p2 {
-        max-width: 800px;
-        font-size: 16px;
-        line-height: 1.7;
-        color: #555;
-    }
+    .projects-title-container {
+        display: flex;
+        flex-direction: row;
+        height: 25vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+        padding-left: 30px; /* if you want spacing */
 
-    .section2 {
-        background-color: #051b38;
+
         display: flex;
         flex-direction: row;
         height: 25vh;
@@ -157,18 +215,7 @@
         align-items: center;
     }
 
-    .yellow-container {
-        background-color: #051b38;
-        display: flex;
-        flex-direction: row;
-        height: 25vh;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 30px;
-    }
-
-    .p4 {
+    .projects-title {
         font-family: "Aeonik", Arial;
         font-weight: 700;
         font-size: 6rem;
@@ -178,39 +225,24 @@
         margin-left: 10px;
     }
 
-    /* FOOTER */
-    .footer {
-        background-color: #051b38;
+    .section-two {
+        height: auto;
+        background-color: white;
         display: flex;
         flex-direction: column;
-        padding: 10px;
-        height: 90px;
-        margin-top: 25px;
+        align-items: center;
+        padding-bottom: 50px;
     }
 
-    #sidebar {
-        position: fixed;
-        top: 0;
-        right: -400px; 
-        width: 300px;
-        height: 100vh;
-        background: #222;
-        color: white;
-        padding: 20px;
-        transition: right 0.4s ease;
-        box-shadow: -5px 0 10px rgba(0,0,0,0.4);
-        z-index: 999;
+    .project-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
     }
 
-    #sidebar.open {
-        right: 0;
-    }
-
-    .menu {
-        cursor: pointer;
-    }
-
-    .p7 {
+    .project-name {
         font-family: "Aeonik", Arial;
         font-weight: 700;
         font-size: 4rem;
@@ -221,23 +253,6 @@
         display: flex;
         flex-direction: column;
         align-items: left;
-    }
-
-    .pImage {
-        width: 80%;
-        height: auto;
-        display: block;       
-        margin: 0 auto;        
-    }
-
-
-    .title {
-        width: 70%;
-        height: auto;
-        margin: 0 auto;
-        display: flex;          
-        justify-content: space-between;
-        align-items: center;     
     }
 
     .view {
@@ -270,129 +285,154 @@
         transition: 0.2s ease;
     }
 
+    .project-image {
+        width: 80%;
+        height: auto;
+        display: block;       
+        margin: 0 auto;    
+    }
+
+    .project-image img {
+        width: 80%;
+        height: auto;
+        display: block;       
+        margin: 0 auto;    
+    }
+
+    .footer {
+        background-color: #051b38;
+        display: flex;
+        flex-direction: column;
+        height: 90px;
+
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
         .sectionOne {
             flex-direction: column;
         }
 
-        .fBackground,
-        .content {
+        .face-section,
+        .introduction {
             width: 100%;
-        }
-
-        .content {
-            padding: 40px;
+            padding: 20px;
         }
     }
+
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+
 </style>
 
-<body class="body">
-
-<!-- HOME BAR -->
-<div class="home-bar" id="top">
-    <div class="title">
-        <p class="p">Tyler Mowen / Computer Engineer</p>
-    </div>
-    <div class="options">
-        <a class="menu">HOME</a>
-        <a href="#section2" class="menu">PROJECTS</a>
-        <a href="Resume/resume.html" class="menu">RESUME</a>
-        <a href="#" class="menu" onclick="toggleSidebar()">CONTACT</a>
-
-        <div id="sidebar">
-            <div style="align-items: right;">
-                <a href="#" class="menu" onclick="toggleSidebar()">X</a>
-            </div>
-            <h2>Contact Me</h2>
-            <p>Email:</p>
-            <p>Phone:</p>
+<body>
+    <!--HEADER-->
+    <div class="header" id="header">
+        <div class="title">
+            <p class="title-text">Tyler Mowen / Computer Engineer</p>
         </div>
-    </div>
-</div>
+        <div class="menu">
+            <a class="options">HOME</a>
+            <a href="#section2" class="options">PROJECTS</a>
+            <a href="Resume/resume.html" class="options">RESUME</a>
+            <a href="#" class="options" onclick="toggleSidebar()">CONTACT</a>
 
-<!-- SECTION ONE -->
-<div class="sectionOne">
-    <div class="fBackground">
-        <div class="face">
-            <img src="face.jpg">
-
-            <p>TYLER MOWEN</p>
-            <p>COMPUTER ENGINEER</p>
-
-            <div class="button-container">
-                <button onclick="window.open('https://www.linkedin.com/in/tyler-mowen-/', '_blank')">LinkedIn</button>
-                <button onclick="window.open('https://github.com/tylrmwn012', '_blank')">GitHub</button>
+            <div class="contact-sidebar" id="sidebar">
+                <div style="align-items: right;">
+                    <a href="#" class="exit" onclick="toggleSidebar()">X</a>
+                </div>
+                <h1>Contact Me</h2>
+                <p>Email:</p>
+                <p>Phone:</p>
             </div>
         </div>
     </div>
 
-    <div class="content">
-        <p2 class="p2">A little about me...</p2>
-        <p3 class="p3">Computer Engineering | Problem Solving | Community Impact</p3>
-        <p2 class="p2">I’m a Computer Engineering student with a passion for using technology to solve meaningful problems and support communities. With two years of experience in programming and a background in both customer service and team leadership, I bring a blend of technical skill and people-first thinking to everything I do.</p2>
-        <p2 class="p2">Through my work with AmeriCorps, CSC, and customer-facing roles, I’ve learned the value of communication, empathy, and adaptability—skills I carry into every team and project.</p2>
+    <!--SECTIONE ONE-->
+    <div class="sectionOne"> <!-- this is a row -->
+        <div class="face-section"> <!-- this is a centered column-->
+            <div class="face"> <!-- this is the floating space-->
+                <img src="face.jpg"> <!-- this is the photo of me-->
+                <p class="face-title">TYLER MOWEN</p>
+                <p class="face-title">COMPUTER ENGINEER</p>
+                <div class="button-container">
+                    <button onclick="window.open('https://www.linkedin.com/in/tyler-mowen-/', '_blank')">LinkedIn</button>
+                    <button onclick="window.open('https://github.com/tylrmwn012', '_blank')">GitHub</button>
+                </div>
+            </div>
+        </div>
+        <div class="introduction"> <!-- this is a left-aligned column -->
+            <p class="intro-text">A little about me...</p>
+            <h1 class="intro-title">Computer Engineering | Problem Solving | Community Impact</h1>
+            <p class="intro-text">I’m a Computer Engineering student with a passion for using technology to solve meaningful problems and support communities. With two years of experience in programming and a background in both customer service and team leadership, I bring a blend of technical skill and people-first thinking to everything I do.</p>
+            <p class="intro-text">Through my work with AmeriCorps, CSC, and customer-facing roles, I’ve learned the value of communication, empathy, and adaptability—skills I carry into every team and project.</p>
+        </div>
     </div>
-</div>
 
-<!-- PROJECTS HEADER -->
-<div class="section2" id="section2">
-    <div class="yellow-container">
-        <p3 class="p4">Projects</p3>
+    <!--PROJECTS TITLE-->
+    <div class="projects-title-container" id="section2">
+        <p class="projects-title">Projects</p>
     </div>
-</div>
 
-<div class="title">
-    <p7 class="p7">Arduino Oscilloscope</p7>
-        <button class="view" onclick="window.location.href='Projects/oscilloscope.html';">
-            View Project
-        </button>
-</div>
-<div class="pImage">
-    <img class="pImage" src="temp.png">
-</div>
-<div class="title">
-    <p7 class="p7">F-35B Swivel Nozzle</p7>
-        <button class="view" onclick="window.location.href='Projects/f35b.html';">
-            View Project
-        </button>
-</div>
-<div class="pImage">
-    <img class="pImage" src="temp.png">
-</div>
-<div class="title">
-    <p7 class="p7">Ultrasonic Radar</p7>
-        <button class="view" onclick="window.location.href='Projects/radar.html';">
-            View Project
-        </button>
-</div>
-<div class="pImage">
-    <img class="pImage" src="temp.png">
-</div>
-<div class="title">
-    <p7 class="p7">CSC Messaging App</p7>
-        <button class="view" onclick="window.location.href='Projects/cscapp.html';">
-            View Project
-        </button>
-</div>
-<div class="pImage">
-    <img class="pImage" src="temp.png">
-</div>
+    <!--PROJECTS-->
+    <div class="section-two">
+        <div class="project-info">
+            <p class="project-name">Arduino Oscilloscope</p>
+            <button class="view" onclick="window.location.href='Projects/oscilloscope.html';">
+                View
+            </button>
+        </div>
+        <div class="project-image">
+            <img src="temp.png">
+        </div>
 
+        <div class="project-info">
+            <p class="project-name">F-35B Swivel Nozzle</p>
+            <button class="view" onclick="window.location.href='Projects/f35b.html';">
+                View
+            </button>
+        </div>
+        <div class="project-image">
+            <img src="temp.png">
+        </div>
 
-<!-- TIMELINE -->
-<div class="white"></div>
+        <div class="project-info">
+            <p class="project-name">Ultrasonic Radar</p>
+            <button class="view" onclick="window.location.href='Projects/radar.html';">
+                View
+            </button>
+        </div>
+        <div class="project-image">
+            <img src="temp.png">
+        </div>
 
-<!-- FOOTER -->
-<div class="footer" style="padding: 20px; align-items: center; justify-content: space-between; display: flex; flex-direction: row;">
-    <p style="color: white; font-size: 12px;">@2025 Tyler Mowen</p>
-    <a href="#top" style="color: white; text-decoration: none;">Back to Top</a>
-</div>
+        <div class="project-info">
+            <p class="project-name">CSC Messaging App</p>
+            <button class="view" onclick="window.location.href='Projects/cscapp.html';">
+                View
+            </button>
+        </div>
+        <div class="project-image">
+            <img src="temp.png">
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <div class="footer" style="padding: 20px; align-items: center; justify-content: space-between; display: flex; flex-direction: row;">
+        <p style="color: white; font-size: 12px;">@2025 Tyler Mowen</p>
+        <a href="#top" style="color: white; text-decoration: none;">Back to Top</a>
+    </div>
 
 </body>
+
 <script>
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("open");
     }
 </script>    
+
 </html>
